@@ -31,9 +31,10 @@ public class LoginController {
 
     //负责处理login.html请求
     @RequestMapping(value = {"/","/login.html"})
-    public String toLogin(HttpServletRequest request){
+    public ModelAndView toLogin(HttpServletRequest request){
         request.getSession().invalidate();
-        return "index";
+        return new ModelAndView("admin_main");
+//        return "index";
     }
     @RequestMapping("/logout.html")
     public String logout(HttpServletRequest request) {
