@@ -33,7 +33,7 @@ public class LoginController {
     @RequestMapping(value = {"/","/login.html"})
     public ModelAndView toLogin(HttpServletRequest request){
         request.getSession().invalidate();
-        return new ModelAndView("admin_main");
+        return new ModelAndView("allbooks");
 //        return "index";
     }
     @RequestMapping("/logout.html")
