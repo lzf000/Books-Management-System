@@ -24,7 +24,7 @@
 <nav  style="position:fixed;z-index: 999;width: 100%;background-color: #fff" class="navbar navbar-default" role="navigation" >
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand" href="allbooks.html">图书管理系统</a>
+            <a class="navbar-brand" href="allbooks.html">图书管理</a>
         </div>
         <!-- <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-left">
@@ -138,23 +138,20 @@
             <c:forEach items="${books}" var="book">
             <tr>
                 <td><c:out value="${book.name}"></c:out></td>
-                <td><c:out value="${book.author}"></c:out></td>
-                <td><c:out value="${book.publish}"></c:out></td>
-                <td><c:out value="${book.isbn}"></c:out></td>
-                <td><c:out value="${book.price}"></c:out></td>
-                <c:if test="${book.state==1}">
-                    <td><a href="lendbook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-primary btn-xs">借阅</button></a></td>
-                </c:if>
-                <c:if test="${book.state==0}">
-                    <td><a href="returnbook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-primary btn-xs">归还</button></a></td>
-                </c:if>
-                <td><a href="bookdetail.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-success btn-xs">详情</button></a></td>
-                <td><a href="updatebook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
-                <td><a href="deletebook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
+                <td><c:out value="${book.lastChapter}"></c:out></td>
+                <td><c:out value="${book.isCache}"></c:out></td>
+                <td><c:out value="${book.chapterCount}"></c:out></td>
+                <td>
+                	<a href="updatebook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-info btn-xs">更新</button></a>
+                	<a href="downLoadBook.html?bookId=<c:out value="${book.bookId}"></c:out>"><button type="button" class="btn btn-danger btn-xs">下载</button></a>
+                </td>
             </tr>
             </c:forEach>
             </tbody>
         </table>
+    <!-- 分页内容 -->
+	<%@include file="/WEB-INF/jsp/pagination.jsp" %>
+	<!-- 分页内容结束 -->
     </div>
 </div>
 
