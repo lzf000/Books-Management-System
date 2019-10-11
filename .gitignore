@@ -1,2 +1,12 @@
-.idea
-target
+.gitignore
+.project
+.classpath
+/target/
+/.settings/
+.class
+/.settings/*
+/runtime/
+.start.properties
+/.metadata/
+/.recommenders/
+/bin/
